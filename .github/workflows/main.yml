@@ -1,9 +1,9 @@
-name: Generate Snake Animation 🐍
+name: Generate Neon Snake Animation 🐍
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # запускается каждый день в полночь
-  workflow_dispatch:     # можно запустить вручную
+    - cron: "0 0 * * *"  # каждый день в полночь
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -12,16 +12,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: 🧩 Checkout code
         uses: actions/checkout@v3
 
-      - name: Generate snake animation
-        uses: Platane/snk@v3
+      - name: 🐍 Generate snake animation (Neon Night)
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: GhostDainy
           outputs: dist/snake.svg
+          palette: "github-dark,cyan-magenta"
 
-      - name: Push snake animation to output branch
+      - name: 🚀 Push snake animation to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
